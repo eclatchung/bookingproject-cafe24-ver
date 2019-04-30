@@ -1,0 +1,24 @@
+{
+  "development": {
+    "host" : "127.0.0.1",
+    "username" : "enrichir97",
+    "password":"booking01cafe!",
+    "database" : "bookingproject",
+    "dialect": "mysql"
+  },
+
+  "test": {
+    "host" : "127.0.0.1",
+    "username" : "enrichir97",
+    "password":"booking01cafe!",
+    "database" : "bookingproject",
+    "dialect": "mariadb"
+  },
+  "production": {
+    "host" : "127.0.0.1",
+    "username" : "enrichir97",
+    "password":"booking01cafe!",
+    "database" : "bookingproject",
+    "dialect": "mariadb"
+  }
+}
