@@ -6,8 +6,9 @@ const {passport} = require('./control');
 var model = require('../../../../models')
 const Store = model.Store
 
-router.get('/login',(res)=>{
-    res.render("login.html");
+router.get('/login',(req,res)=>{
+    res.render('login.html');
+    console.log('/api/web/auth/login')
 })
 
 router.post('/login',(req,res)=>{

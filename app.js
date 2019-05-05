@@ -6,7 +6,7 @@ var passport = require('passport'),
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session');
-
+var Router = require('./routes/index');
 var indexRouter = require('./routes/index');
 //var config = require(__dirname + './config/config.json')[env];
 var app = express();
