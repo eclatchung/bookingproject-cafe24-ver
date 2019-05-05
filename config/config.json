@@ -3,21 +3,21 @@
     "username": "enrichir97",
     "password": "booking01cafe!",
     "database": "enrichir97",
-    "host": "127.0.0.1",
+    "host": "nodejs-004.cafe24.com",
     "dialect": "mysql"
   },
   "test": {
     "username": "enrichir97",
     "password": "booking01cafe!",
     "database": "enrichir97",
-    "host": "127.0.0.1",
+    "host": "nodejs-004.cafe24.com",
     "dialect": "mysql"
   },
   "production": {
     "username": "enrichir97",
     "password": "booking01cafe!",
     "database": "enrichir97",
-    "host": "127.0.0.1",
+    "host": "nodejs-004.cafe24.com",
     "dialect": "mysql"
   }
 }
