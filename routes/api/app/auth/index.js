@@ -4,20 +4,18 @@ var router = express.Router();
 var control = require("./control");
 const {passport} = require('./control');
 var model = require('../../../../models')
-const Store = model.Store
+const Member = model.Member
 
 router.get('/login',(req,res)=>{
-    res.render('login.html');
-    console.log('/api/web/auth/login')
+    console.log('/api/app/auth/login')
 })
 
 router.post('/login',(req,res)=>{
     passport.authenticate('local',(err,auth,info)=>{
         if(err) console.log(err); 
-        if(store) console.log(store+"\n passport autherticate");
-        if(!store) console.log("no match");
-    }),
-    console.log("POST LOGIN>>>")
+        if(member) console.log(member+"\n passport autherticate in APP");
+        if(!member) console.log("no match in APP");
+    })
 });
 
 module.exports = router;

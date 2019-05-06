@@ -1,23 +1,21 @@
 var passport = require("passport");
 var LocalStrategy = require('passport-local').Strategy;
 
-var Store = require('../../../../models/CRUD/store');
+var Member = require('../../../../models/CRUD/member');
 
 //local strategy
 passport.use(new LocalStrategy({
-    usernameField : 'store_id',
-    passwordField : 'store_psw',
+    usernameField : 'mem_id',
+    passwordField : 'mem_psw',
     passReqToCallback : true
 },
-function(store_id,store_psw,done){
-    Store.findOne(store_id,store_psw)
+function(mem_id,mem_psw,done){
+    Member.findOne(mem_id,mem_psw)
     .then((req,res)=>{
-        //res.render('mainpage'+store_id+'.html'),
-        console.log("move to mainpage"+store_id),
-        done(null,store)
+        console.log("Passport at app"+ mem_id),
+        done(null,member)
     }).catch((err)=>{
         console.log(err)
-        res.render('login.html')
     })
 }
 ))
