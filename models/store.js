@@ -1,7 +1,7 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  const store = sequelize.define('Store', {
+  const store = sequelize.define('store', {
     store_name: {
       type: DataTypes.STRING(50),
       allowNull: false

@@ -9,7 +9,7 @@ passport.use(new LocalStrategy({
     passwordField : 'store_psw',
     passReqToCallback : true
 },
-function(store_id,store_psw,done){
+function(req,store_id,store_psw,done){
     Store.findOne(store_id,store_psw)
     .then((req,res)=>{
         //res.render('mainpage'+store_id+'.html'),
