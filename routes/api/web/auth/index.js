@@ -12,10 +12,14 @@ router.get('/login',(req,res)=>{
 })
 
 router.post('/login',(req,res)=>{
-    passport.authenticate('local',(err,auth,info)=>{
-        if(err) console.log(err); 
-        if(store) console.log(store+"\n passport autherticate");
-        if(!store) console.log("no match");
+    passport.authenticate('web-login',(req,res,err)=>{
+        console.log('passport authenticate call')
+        if(err) res.json(err);
+        else{
+            res.json({success:'true'})
+            console.log("passport success")
+            res.render('mypage.html')
+        }
     }),
     console.log("POST LOGIN>>>")
 });
