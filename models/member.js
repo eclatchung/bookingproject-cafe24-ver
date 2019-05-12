@@ -1,7 +1,7 @@
 /* jshint indent: 2 */
 
 module.exports = function(sequelize, DataTypes) {
-  const member = sequelize.define('member', {
+  var member = sequelize.define('member', {
     name: {
       type: DataTypes.STRING(30),
       allowNull: false

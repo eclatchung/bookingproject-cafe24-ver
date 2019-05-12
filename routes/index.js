@@ -4,7 +4,7 @@ var api = require("./api");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index.html');
+  res.render('index.hbs');
 });
 router.use('/api',api);
 

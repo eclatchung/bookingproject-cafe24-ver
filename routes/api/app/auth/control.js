@@ -31,4 +31,8 @@ passport.deserializeUser((store,done)=>{
     return done(null,store);
 })
 
+exports.signup=(req,res)=>{
+    res.render('signup')
+}
+
 module.exports = {passport};
