@@ -8,7 +8,10 @@ var control = require('./control');
 
 router.post('/login',passport.authenticate('app-login',{
     session : false
-}))
+}),function(req,res){
+    res.json({ status : true,
+        success : true })
+})
 
 router.post('/register',control.register);
 
