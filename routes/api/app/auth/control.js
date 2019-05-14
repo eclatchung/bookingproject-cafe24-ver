@@ -1,38 +1,22 @@
-var passport = require("passport");
-var LocalStrategy = require('passport-local').Strategy;
+const models = require('../../../../models');
+//let exports = module.exports = {};
 
-var Member = require('../../../../models/CRUD/member');
+exports.register = function(req,res,next){
 
-//local strategy
-passport.use(new LocalStrategy({
-    usernameField : 'mem_id',
-    passwordField : 'mem_psw',
-    passReqToCallback : true
-},
-function(mem_id,mem_psw,done){
-    Member.findOne(mem_id,mem_psw)
-    .then((req,res)=>{
-        console.log("Passport at app"+ mem_id),
-        done(null,member)
-    }).catch((err)=>{
-        console.log(err)
+    let body = req.body;
+    
+    models.member.create({
+        name : body.name,
+        mem_id : body.mem_id,
+        mem_psw : body.mem_psw,
+        mem_phone : body.mem_phone
+    }).then((member)=>{
+        console.log("데이터 추가 완료!");
+        console.log(member);
+        res.json({ status : true,
+           success : true })
+    }).catch((err,res)=>{
+        console.log(err);
     })
+    
 }
-))
-
-//serializeUser
-passport.serializeUser((store,done)=>{
-    console.log('serializeUser--->>>>');
-    return done(null,store);
-})
-passport.deserializeUser((store,done)=>{
-    console.log('desrializeUser --->>');
-    console.log(store);
-    return done(null,store);
-})
-
-exports.signup=(req,res)=>{
-    res.render('signup')
-}
-
-module.exports = {passport};

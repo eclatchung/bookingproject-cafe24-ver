@@ -39,7 +39,7 @@ app.use(cookieParser());
 app.use(session({secret:'keyboard booking', resave : true, saveUninitialized :true,
 cookie : { secure : false, maxAge : (4 * 60 * 60 * 1000) }}));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(WebPassport.initialize());
+app.use(WebPassport.initialize({ userProperty : 'user' }));
 app.use(WebPassport.session());
 //app.use(appPassport.initialize({ userProperty : 'member' }))
 //app.use(appPassport.session());

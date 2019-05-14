@@ -2,17 +2,14 @@
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
+var control = require('./control');
 
 
-
-router.get('/login',(req,res)=>{
-    console.log('/api/app/auth/login')
-})
 
 router.post('/login',passport.authenticate('app-login',{
     session : false
-}),function(req,res){
-    res.json({ success : true})
-})
+}))
+
+router.post('/register',control.register);
 
 module.exports = router;
