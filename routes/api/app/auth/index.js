@@ -13,6 +13,9 @@ router.post('/login',passport.authenticate('app-login',{
         success : true })
 })
 
-router.post('/register',control.register);
+router.post('/register',control.register,function(req,res){
+    res.json({ status : true,
+        success : true })
+});
 
 module.exports = router;
