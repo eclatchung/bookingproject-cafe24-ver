@@ -4,6 +4,7 @@ var router = express.Router();
 var control = require('./control');
 
 router.post('/sort',control.sort);
+router.post('/search',control.search);
 
 
 
