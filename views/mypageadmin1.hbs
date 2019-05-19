@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>http://www.blueb.co.kr</title>
+<title>ADMIN01+mypage</title>
 <link href="http://fonts.googleapis.com/earlyaccess/hanna.css" rel="stylesheet">
 <style>
 .hn{font-family: 'Hanna', sans-serif;}
@@ -163,14 +163,16 @@ docum ent.getElem entByle("secunolja").style.backgroundColor = "green"
 </div>
 <div class="wrap">
 	<div style="position: absolute; right: 70px; bottom: 10px;">
-    	<form method="post">
-    		<button class="button"><p class="hn">예약 다시 받기</p></button>
+		<!-- ===============예약기능=============================
+		     =================================================== -->
+    	<form method="post" action="/api/web/reserve/restart">
+    		<button class="button" name="restart" value="{{store_id}}"><p class="hn">예약 다시 받기</p></button>
     	</form>
 	</div>
 	<div class="wrap">
 		<div style="position: absolute; right: 250px; bottom: 10px;">
-    		<form method="post">
-    			<button class="button"><p class="hn">예약 정지</p></button>
+    		<form method="post"action="/api/web/reserve/stop">
+    			<button class="button" name="stop" value="{{store_id}}"><p class="hn">예약 정지</p></button>
     		</form>
 		</div>
 	</div>
