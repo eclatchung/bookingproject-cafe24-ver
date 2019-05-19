@@ -33,3 +33,18 @@ exports.search = (req,res)=>{
         res.json(store);
     })).catch(err=>{console.log(err)})
 }
+
+exports.home = (req,res)=>{
+    let store_id = req.body.store_id;
+    
+
+    models.store.findOne({
+        where:{
+            store_id : store_id
+        },attributes : ['store_name','addr2','sort']
+    }).then((store)=>{
+        res.json(store);
+    }).catch(err => console.log(err))
+
+}
+

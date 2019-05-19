@@ -10,10 +10,10 @@ router.get('/login',(req,res)=>{
   
 })
 
-router.post('/login',passport.authenticate('web-login',{
+router.post('/login',function(req,res,next){passport.authenticate('web-login',{
     session : false,
-    successRedirect : '/api/web/mypage',
+    successRedirect : '/api/web/reserve/mypage/'+ req.body.store_id,
     failureRedirect: '/api/web/auth/login'
-    }));
+    })(req,res,next)});
 
 module.exports = router;
