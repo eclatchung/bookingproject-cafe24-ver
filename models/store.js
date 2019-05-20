@@ -32,6 +32,10 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true,
       defaultValue: '0'
     },
+    res_time : {
+      type : DataTypes.STRING,
+      allowNull : false
+    },
     res_num: {
       type: DataTypes.BIGINT,
       allowNull: true,
@@ -48,7 +52,11 @@ module.exports = function(sequelize, DataTypes) {
 
   store.associate = function(models){
     store.hasMany(models.menu);
-  }
+  };
+
+  store.associate = function(models){
+    store.hasMany(models.book);
+  };
 
   return store;
 };

@@ -22,5 +22,8 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     tableName: 'member'
   });
+  member.associate = function(models){
+    member.hasMany(models.list)
+  }
   return member;
 };
