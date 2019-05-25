@@ -8,7 +8,7 @@ module.exports = function (status) {
 
         var API_OPT = {
            headers :  {'Content-type': 'application/x-www-form-urlencoded;charset=utf-8',
-                        'Authorization':'KakaoAK{f8fbfefe0d136f2927e27cc2029a6427}'},
+                        'Authorization':'KakaoAK f8fbfefe0d136f2927e27cc2029a6427' },
             url : null,
             followRedirect:true,
             form :null
@@ -42,7 +42,7 @@ module.exports = function (status) {
                 //     "fail_url":info.fail_url
                 // });
                 API_OPT.form= querystring.stringify({
-                    "CID" : 'TC0ONETIME',
+                    "cid" : 'TC0ONETIME',
                    "partner_order_id" : info.store_id,
                     "partner_user_id" : info.mem_id,
                     "item_name" : info.item_name,
