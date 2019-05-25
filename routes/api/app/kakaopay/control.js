@@ -8,9 +8,9 @@ exports.kakaoready = (req,res)=>{
     info.quantity = req.body.quantity;
     info.total_amount = req.body.total_amount;
     info.tax_free_amount = req.body.tax_free_amount;
-    info.approval_url='http://booking.cafe24.com/api/app/kakaopay/approval';
-    info.cancel_url = 'http://booking.cafe24.com/api/app/kakaopay/cancel';
-    info.fail_url = 'http://booking.cafe24.com/api/app/kakaopay/fail';
+    info.approval_url='http://booking.cafe24app.com/api/app/kakaopay/approval';
+    info.cancel_url = 'http://booking.cafe24app.com/api/app/kakaopay/cancel';
+    info.fail_url = 'http://booking.cafe24app.com/api/app/kakaopay/fail';
 
     KakaoCall('ready').kpready(info,function(err,result){
         if(!err){
