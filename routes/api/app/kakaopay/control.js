@@ -5,9 +5,9 @@ exports.kakaoready = (req,res)=>{
     info.store_id = req.body.store_id;
     info.mem_id = req.body.mem_id;
     info.item_name = req.body.item_name;
-    info.quality = req.body.quality;
+    info.quantity = req.body.quantity;
     info.total_amount = req.body.total_amount;
-    info.total_free_amount = req.body.total_free_amount;
+    info.tax_free_amount = req.body.tax_free_amount;
     info.approval_url='http://booking.cafe24.com/api/app/kakaopay/approval';
     info.cancel_url = 'http://booking.cafe24.com/api/app/kakaopay/cancel';
     info.fail_url = 'http://booking.cafe24.com/api/app/kakaopay/fail';
