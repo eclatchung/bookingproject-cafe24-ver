@@ -28,19 +28,7 @@ module.exports = function (status) {
         }})(status)
         return {
             kpready : function(info,callback){
-                API_OPT.url = host+PATH
-                // API_OPT. = JSON.stringify({
-                //     "CID" : 'TC0ONETIME',
-                //     "partner_order_id" : info.store_id,
-                //     "partner_user_id" : info.mem_id,
-                //     "item_name" : info.item_name,
-                //     "quantity":info.quantity,
-                //     "total_amount" :info.total_amount,
-                //     "tax_free_amount":info.tax_free_amount,
-                //     "approval_url":info.approval_url,
-                //     "cancel_url":info.cancel_url,
-                //     "fail_url":info.fail_url
-                // });
+                API_OPT.url = host+PATH;
                 API_OPT.form= querystring.stringify({
                     "cid" : 'TC0ONETIME',
                    "partner_order_id" : info.store_id,
