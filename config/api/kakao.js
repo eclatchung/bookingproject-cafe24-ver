@@ -8,7 +8,7 @@ module.exports = function (status) {
 
         var API_OPT = {
            headers :  {'Content-type': 'application/x-www-form-urlencoded;charset=utf-8',
-                        'Authorization':'KakaoAK f8fbfefe0d136f2927e27cc2029a6427' },
+                        'Authorization':'KakaoAK adminkey' },
             url : null,
             followRedirect:true,
             form :null
