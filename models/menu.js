@@ -6,7 +6,7 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.STRING(50),
         allowNull: false
       },
-      prince: {
+      price: {
         type: DataTypes.INTEGER,
         allowNull: false,
       }

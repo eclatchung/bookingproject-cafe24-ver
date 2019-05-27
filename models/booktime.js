@@ -2,191 +2,187 @@
 
 module.exports = function(sequelize,DataTypes){
     var booktime = sequelize.define('booktime',{
-        AM0000 : {
+        AM_00시00분 : {
             type: DataTypes.BOOLEAN,
             defaultValue: '0'
         },
-        AM0030 : {
+        AM_00시30분 : {
             type: DataTypes.BOOLEAN,
             defaultValue: '0'
         },
-        AM0100 : {
+        AM_01시00_분 : {
             type: DataTypes.BOOLEAN,
             defaultValue: '0'
         },
-        AM0130 : {
+        AM_01시30분 : {
             type: DataTypes.BOOLEAN,
             defaultValue: '0'
         },
-        AM0200 : {
+        AM_02시00분 : {
             type: DataTypes.BOOLEAN,
             defaultValue: '0'
         },
-        AM0230 : {
+        AM_02시30분 : {
             type: DataTypes.BOOLEAN,
             defaultValue: '0'
         },
-        AM0300 : {
+        AM_03시00분 : {
             type: DataTypes.BOOLEAN,
             defaultValue: '0'
         },
-        AM0330 : {
+        AM_03시30분 : {
             type: DataTypes.BOOLEAN,
             defaultValue: '0'
         },
-        AM0400 : {
+        AM_04시00분 : {
             type: DataTypes.BOOLEAN,
             defaultValue: '0'
         },
-        AM0430 : {
+        AM_04시30분 : {
             type: DataTypes.BOOLEAN,
             defaultValue: '0'
         },
-        AM0500 : {
+        AM_05시00분 : {
             type: DataTypes.BOOLEAN,
             defaultValue: '0'
         },
-        AM0530 : {
+        AM_05시30분 : {
             type: DataTypes.BOOLEAN,
             defaultValue: '0'
         },
-        AM0600 : {
+        AM_06시00분 : {
             type: DataTypes.BOOLEAN,
             defaultValue: '0'
         },
-        AM0630 : {
+        AM_06시30분 : {
             type: DataTypes.BOOLEAN,
             defaultValue: '0'
         },
-        AM0700 : {
+        AM_07시00분 : {
             type: DataTypes.BOOLEAN,
             defaultValue: '0'
         },
-        AM0730 : {
+        AM_07시30분 : {
             type: DataTypes.BOOLEAN,
             defaultValue: '0'
         },
-        AM0800 : {
+        AM_08시00분 : {
             type: DataTypes.BOOLEAN,
             defaultValue: '0'
         },
-        AM0830 : {
+        AM_08시30분 : {
             type: DataTypes.BOOLEAN,
             defaultValue: '0'
         },
-        AM0900 : {
+        AM_09시00분 : {
             type: DataTypes.BOOLEAN,
             defaultValue: '0'
         },
-        AM0930 : {
+        AM_09시30분 : {
             type: DataTypes.BOOLEAN,
             defaultValue: '0'
         },
-        AM1000 : {
+        AM_10시00분 : {
             type: DataTypes.BOOLEAN,
             defaultValue: '0'
         },
-        AM1100 : {
+        AM_11시00분 : {
             type: DataTypes.BOOLEAN,
             defaultValue: '0'
         },
-        AM1130 : {
+        AM_11시30분 : {
             type: DataTypes.BOOLEAN,
             defaultValue: '0'
         },
-        PM1200 : {
+        PM_12시00분 : {
             type: DataTypes.BOOLEAN,
             defaultValue: '0'
         },
-        PM1230 : {
+        PM_12시30분 : {
             type: DataTypes.BOOLEAN,
             defaultValue: '0'
         },
-        PM1300 : {
+        PM_01시00_분 : {
             type: DataTypes.BOOLEAN,
             defaultValue: '0'
         },
-        PM1330 : {
+        PM_01시30분 : {
             type: DataTypes.BOOLEAN,
             defaultValue: '0'
         },
-        PM1400 : {
+        PM_02시00분 : {
             type: DataTypes.BOOLEAN,
             defaultValue: '0'
         },
-        PM1430 : {
+        PM_02시30분 : {
             type: DataTypes.BOOLEAN,
             defaultValue: '0'
         },
-        PM1500 : {
+        PM_03시00분 : {
             type: DataTypes.BOOLEAN,
             defaultValue: '0'
         },
-        PM1530 : {
+        PM_03시30분 : {
             type: DataTypes.BOOLEAN,
             defaultValue: '0'
         },
-        PM1600 : {
+        PM_04시00분 : {
             type: DataTypes.BOOLEAN,
             defaultValue: '0'
         },
-        PM1630 : {
+        PM_04시30분 : {
             type: DataTypes.BOOLEAN,
             defaultValue: '0'
         },
-        PM1700 : {
+        PM_05시00분 : {
             type: DataTypes.BOOLEAN,
             defaultValue: '0'
         },
-        PM1730 : {
+        PM_05시30분 : {
             type: DataTypes.BOOLEAN,
             defaultValue: '0'
         },
-        PM1800 : {
+        PM_06시00분 : {
             type: DataTypes.BOOLEAN,
             defaultValue: '0'
         },
-        PM1830 : {
+        PM_06시30분 : {
             type: DataTypes.BOOLEAN,
             defaultValue: '0'
         },
-        PM1900 : {
+        PM_07시00분 : {
             type: DataTypes.BOOLEAN,
             defaultValue: '0'
         },
-        PM1930 : {
+        PM_07시30분 : {
             type: DataTypes.BOOLEAN,
             defaultValue: '0'
         },
-        PM2000 : {
+        PM_08시00분 : {
             type: DataTypes.BOOLEAN,
             defaultValue: '0'
         },
-        PM2030 : {
+        PM_08시30분 : {
             type: DataTypes.BOOLEAN,
             defaultValue: '0'
         },
-        PM2100 : {
+        PM_09시00분 : {
             type: DataTypes.BOOLEAN,
             defaultValue: '0'
         },
-        PM2130 : {
+        PM_09시30분 : {
             type: DataTypes.BOOLEAN,
             defaultValue: '0'
         },
-        PM2200 : {
+        PM_10시00분 : {
             type: DataTypes.BOOLEAN,
             defaultValue: '0'
         },
-        PM2230 : {
+        PM_11시00분 : {
             type: DataTypes.BOOLEAN,
             defaultValue: '0'
         },
-        PM2300 : {
-            type: DataTypes.BOOLEAN,
-            defaultValue: '0'
-        },
-        PM2330 : {
+        PM_11시30분 : {
             type: DataTypes.BOOLEAN,
             defaultValue: '0'
         }

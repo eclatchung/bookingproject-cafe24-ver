@@ -22,9 +22,8 @@ module.exports = function(sequelize, DataTypes){
         book.belongsTo(models.store,{
             foreignKey : "store_id"
         })
-    };
-    book.associate= function(models){
         book.hasOne(models.booktime)
-    }
+    };
+
     return book;
 }

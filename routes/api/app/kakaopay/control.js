@@ -12,11 +12,13 @@ exports.kakaoready = (req,res)=>{
     info.cancel_url = 'http://booking.cafe24app.com/api/app/kakaopay/cancel';
     info.fail_url = 'http://booking.cafe24app.com/api/app/kakaopay/fail';
 
-    KakaoCall('ready').kpready(info,function(err,result){
+    KakaoCall('ready').kpready(info,function(res,err,result){
         if(!err){
             console.log(result);
+            res.json(result)
         }else{
             console.log(err);
+            res.json(err);
         }
     })
 

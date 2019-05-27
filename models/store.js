@@ -52,11 +52,10 @@ module.exports = function(sequelize, DataTypes) {
 
   store.associate = function(models){
     store.hasMany(models.menu);
-  };
-
-  store.associate = function(models){
     store.hasMany(models.book);
   };
+
+ 
 
   return store;
 };
