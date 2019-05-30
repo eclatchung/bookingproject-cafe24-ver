@@ -41,7 +41,7 @@ exports.home = (req,res)=>{
     models.store.findOne({
         where:{
             store_id : store_id
-        },attributes : ['store_name','addr2','sort','res_time']
+        },attributes : ['store_name','addr2','sort','res_time','res_status']
     }).then((store)=>{
         res.json(store);
     }).catch(err => console.log(err))

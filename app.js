@@ -9,11 +9,13 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session');
 var WebConfig = require('./config/passport/webpassport');
-var AppConfig = require('./config/passport/apppassport');
+//var AppConfig = require('./config/passport/apppassport');
 //var config = require(__dirname + './config/config.json')[env];
 var app = express();
 var exphbs = require('express-handlebars');
 var env = require('dotenv').config();
+
+app.io = require('socket.io')();
 
 
 //app.set('views', express-handlebars);
@@ -57,6 +59,11 @@ models.sequelize.sync().then(()=>{
 })
 
 var indexRouter = require('./routes/index');
+
+// app.io.on('connection',function(socket){
+//   console.log('socketio user connected......')
+// })
+
 
 
 app.use('/', indexRouter);

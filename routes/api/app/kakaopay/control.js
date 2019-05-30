@@ -18,7 +18,7 @@ exports.kakaoready = (req,res)=>{
             res.json(result)
         }else{
             console.log(err);
-            res.json(err);
+            res.json({"msg":"ERROR"})
         }
     })
 
