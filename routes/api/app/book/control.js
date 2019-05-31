@@ -42,8 +42,10 @@ exports.showtime=(req,res)=>{
     function showpretty(booktime){
 
         var result = [];
-        var num = 0;
-
+        var num = 1;
+        var book = {};
+        book.book_id = booktime.book_id;
+        result[0] = book;
         if(booktime.AM_00시00분==0) {var ob={}; ob.time = 'AM_00시00분'; result[num]=ob; num++;}
         if(booktime.AM_00시30분==0) {var ob={}; ob.time  = 'AM_00시30분'; result[num]=ob; num++;}
         if(booktime.AM_01시00분==0) {var ob={}; ob.time  = 'AM_01시00분';result[num]=ob; num++;}
@@ -98,4 +100,33 @@ exports.showtime=(req,res)=>{
     }
 
 
+}
+
+exports.save = (req,res) => {
+
+    let info = {};
+    info.store_id = req.body.store_id;
+    info.mem_id = req.body.mem_id;
+    info.menu = req.body.menu;
+    info.time = req.body.time;
+    info.tableNum = req.tableNum;
+
+    var t;
+    var resultJSON;
+    var num ;
+
+    models.sequelize.transaction().then(function(transaction){
+        t = transaction;
+        if(info.time == "AM_00시00분"){
+        return models.booktime.update({AM_00시00분 : 1},
+            {where : {tableNum : info.tableNum},transaction : t})
+            .then((result)=>{
+                resultJSON = result;
+                models.list.create({
+                
+                })
+            }).catch()
+    }
+
+    })
 }

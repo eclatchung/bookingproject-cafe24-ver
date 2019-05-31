@@ -4,7 +4,7 @@ module.exports = function(sequelize, DataTypes){
     var list = sequelize.define('list',{
         orderId : {
             type: DataTypes.INTEGER,
-            allowNull : false
+            allowNull : true
         },
         menuName : {
             type : DataTypes.STRING(50),

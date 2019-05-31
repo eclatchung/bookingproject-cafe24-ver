@@ -4,21 +4,25 @@ exports.kakaoready = (req,res)=>{
     let info = {};
     info.store_id = req.body.store_id;
     info.mem_id = req.body.mem_id;
-    info.item_name = req.body.item_name;
-    info.quantity = req.body.quantity;
+    info.item_name = req.body.item_name;//menu
+    info.quantity = req.body.quantity;//1
     info.total_amount = req.body.total_amount;
-    info.tax_free_amount = req.body.tax_free_amount;
+    info.tax_free_amount = req.body.tax_free_amount;//0
     info.approval_url='http://booking.cafe24app.com/api/app/kakaopay/approval';
     info.cancel_url = 'http://booking.cafe24app.com/api/app/kakaopay/cancel';
     info.fail_url = 'http://booking.cafe24app.com/api/app/kakaopay/fail';
 
-    KakaoCall('ready').kpready(info,function(res,err,result){
+    KakaoCall('ready').kpready(info,function(err,result){
         if(!err){
             console.log(result);
-            res.json(result)
+            var send ={};
+            send.tid = result.tid;
+            send.next_redirect_app_url = result.next_redirect_app_url;
+            send.android_app_scheme = result.android_app_scheme;
+            send.created_at = result.created_at;
+            res.json(send);
         }else{
             console.log(err);
-            res.json({"msg":"ERROR"})
         }
     })
 
