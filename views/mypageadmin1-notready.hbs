@@ -6,6 +6,24 @@
 <script src="jquery-3.1.1.min.js">	
 </script>
 <script src="socket.io.js"></script>
+<script>
+	var host;
+	var port;
+	var socket;
+	var options = {'forceNew': true };
+	var localhost = 'localhost:8001/api/web/socket'
+	//var url = 'http://booking.cafe24app.com:8001/'
+	$(function(){
+		socket = io.connect(localhost,options);
+		socket.on('connect',function(){
+	
+		});
+		socket.on('disconnect',function(){
+
+		})
+	})
+
+</script>
 <link href="http://fonts.googleapis.com/earlyaccess/hanna.css" rel="stylesheet">
 <style>
 .hn{font-family: 'Hanna', sans-serif;}
@@ -151,7 +169,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3E1D6D', end
     <div class="main_10 main_common"><p class="content">No.10</p></div> 
 			<!-- ===============예약현황=============================
 		     =================================================== -->
-	<textarea cols='100' rows='15' class='textarea'></textarea>
+	<textarea id='result' cols='100' rows='15' class='textarea'></textarea>
 			<!-- ===============예약메뉴=============================
 		     =================================================== -->
 	<textarea cols='100' rows='15' class='textarea'></textarea>
