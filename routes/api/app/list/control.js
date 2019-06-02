@@ -28,7 +28,7 @@ exports.search = (req,res)=>{
                 [Op.like] : '%' + searchstore + '%'
             },
             addr1 : addr1
-        },attributes : ['store_id', 'store_name']
+        },attributes : ['store_id', 'store_name','sort']
     }).then((store=>{
         res.json(store);
     })).catch(err=>{console.log(err)})

@@ -1,5 +1,5 @@
 const models = require('../../../../models');
-
+//const app = require('../../../../app');
 
 exports.menu = (req,res) =>{
 
@@ -103,27 +103,15 @@ exports.showtime=(req,res)=>{
 }
 
 exports.socket =(req,res) => {
-    var pret01 = req.pret01; //room time data
-    var pret02 =  req.pret02; // room menu data
-    const io = req.app.get('socketio');
- 
-    var store = io.of('/store').on('connect',function(socket){
-        console.log('클라이언트 접속');
+    var ob = {};
+    ob.pret01 = req.pret01; //room time data
+    ob.pret02 =  req.pret02; // room menu data
+    ob.store_id = req.store_id;
+   
+   req.app.io.to(ob.store_id).emit('time',ob.pret01);
+   req.app.io.to(ob.store_id).emit('menu',ob.pret02);
 
-        socket.on('joinroom',function(data){
-            var mem_id = socket.mem_id = data.mem_id;
-            if(mem_id ==req.store_id){
-                var roomtime = socket.roomtime = data.roomtime;
-                var roommenu = socket.roommenu = data.roommenu;
-                
-                socket.join(roomtime);
-                socket.join(roommenu);
 
-                store.to(roomtime).emit('time',pret01);
-                store.to(roommenu).emit('menu',pret02);
-            }
-        })
-    })
-    console.log(pret01,pret02)
+    console.log(ob.pret01+'\n'+ob.pret02)
   res.json({success:true});
 }

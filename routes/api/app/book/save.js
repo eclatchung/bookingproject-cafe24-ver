@@ -1446,15 +1446,16 @@ exports.save = (req,res,next)=> {
                 ob.time = list[n].dataValues.time;
                 var hour = parseInt(ob.time /100);
                 var min = ob.time % 100;
-                var log = "테이블 " + ob.tableNum + "에  "+ hour + "시 " + min +"분   "+ ob.mem_id +" 손님 예약 " 
-                result[n] = log;
+                ob.log = "테이블 " + ob.tableNum + "에  "+ hour + "시 " + min +"분   "+ ob.mem_id +" 손님 예약 " 
+                result.push(ob.log);
+
             }
         }
         return result;
     }
     
     function pretty02(list,tableNum){
-        var result;
+        var result={};
             var ob = {};
             ob.tableNum =tableNum;
             ob.menu = list.menu;
@@ -1462,7 +1463,7 @@ exports.save = (req,res,next)=> {
             ob.mem_id = list.mem_id;
 
             var log = "테이블 " + ob.tableNum + "에  "+ ob.mem_id +" 손님 "+ ob.menu + "예약 총 가격 : "+ob.price 
-            result=log;
+            result.log=log;
         
         return result;
     }

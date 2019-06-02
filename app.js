@@ -14,9 +14,11 @@ var WebConfig = require('./config/passport/webpassport');
 var app = express();
 var exphbs = require('express-handlebars');
 var env = require('dotenv').config();
+var io = require('socket.io')();
+app.io = io;
+require('./routes/api/web/socket/socket')(app.io);
 
-app.io = require('socket.io')();
-app.set('socketio',app.io);
+//app.set('socketio',app.io);
 
 //app.set('views', express-handlebars);
 //app.set('view engine', 'pug');
