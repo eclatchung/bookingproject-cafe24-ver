@@ -10,10 +10,6 @@ module.exports = function(sequelize, DataTypes){
         tableNum : {
             type: DataTypes.INTEGER,
             defaultValue : '0'
-        },
-        tableStatus :{
-            type: DataTypes.BOOLEAN,
-            defaultValue : '0'
         }
     },{
         tableName : 'book'
@@ -22,7 +18,8 @@ module.exports = function(sequelize, DataTypes){
         book.belongsTo(models.store,{
             foreignKey : "store_id"
         })
-        book.hasOne(models.booktime)
+        book.hasOne(models.booktime);
+        book.hasMany(models.list);
     };
 
     return book;

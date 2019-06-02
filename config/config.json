@@ -4,20 +4,23 @@
     "password": "booking01cafe!",
     "database": "enrichir97",
     "host": "nodejs-004.cafe24.com",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "timezone" : "+09:00"
   },
   "test": {
     "username": "enrichir97",
     "password": "booking01cafe!",
     "database": "enrichir97",
     "host": "nodejs-004.cafe24.com",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "timezone" : "+09:00"
   },
   "production": {
     "username": "enrichir97",
     "password": "booking01cafe!",
     "database": "enrichir97",
     "host": "nodejs-004.cafe24.com",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "timezone" : "+09:00"
   }
 }

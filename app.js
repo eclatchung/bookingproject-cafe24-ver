@@ -16,7 +16,7 @@ var exphbs = require('express-handlebars');
 var env = require('dotenv').config();
 
 app.io = require('socket.io')();
-
+app.set('socketio',app.io);
 
 //app.set('views', express-handlebars);
 //app.set('view engine', 'pug');

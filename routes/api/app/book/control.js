@@ -102,31 +102,28 @@ exports.showtime=(req,res)=>{
 
 }
 
-exports.save = (req,res) => {
+exports.socket =(req,res) => {
+    var pret01 = req.pret01; //room time data
+    var pret02 =  req.pret02; // room menu data
+    const io = req.app.get('socketio');
+ 
+    var store = io.of('/store').on('connect',function(socket){
+        console.log('클라이언트 접속');
 
-    let info = {};
-    info.store_id = req.body.store_id;
-    info.mem_id = req.body.mem_id;
-    info.menu = req.body.menu;
-    info.time = req.body.time;
-    info.tableNum = req.tableNum;
-
-    var t;
-    var resultJSON;
-    var num ;
-
-    models.sequelize.transaction().then(function(transaction){
-        t = transaction;
-        if(info.time == "AM_00시00분"){
-        return models.booktime.update({AM_00시00분 : 1},
-            {where : {tableNum : info.tableNum},transaction : t})
-            .then((result)=>{
-                resultJSON = result;
-                models.list.create({
+        socket.on('joinroom',function(data){
+            var mem_id = socket.mem_id = data.mem_id;
+            if(mem_id ==req.store_id){
+                var roomtime = socket.roomtime = data.roomtime;
+                var roommenu = socket.roommenu = data.roommenu;
                 
-                })
-            }).catch()
-    }
+                socket.join(roomtime);
+                socket.join(roommenu);
 
+                store.to(roomtime).emit('time',pret01);
+                store.to(roommenu).emit('menu',pret02);
+            }
+        })
     })
+    console.log(pret01,pret02)
+  res.json({success:true});
 }
