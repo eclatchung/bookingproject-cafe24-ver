@@ -12,7 +12,7 @@
 	var socket;
 	var options = {'forceNew': true };
 	var localhost = 'localhost:8001/store'
-	//var url = 'http://booking.cafe24app.com:8001'
+	//var url = 'http://booking.cafe24app.com'
 	var store_id = '{{store_id}}';
 	socket =io.connect('http://booking.cafe24app.com:8001');
 	socket.emit('store_id',{store_id : "{{store_id}}"});
