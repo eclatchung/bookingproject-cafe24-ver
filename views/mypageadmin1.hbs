@@ -212,13 +212,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3E1D6D', end
 <div class="wrap">
 	<div style="position: absolute; right: 70px; bottom: 10px;">
     	<form method="post"action="/api/web/reserve/restart" >
-    		<button class="button"><p class="hn" >예약 다시 받기</p></button>
+    		<button class="button" name="restart" value="{{store_id}}"><p class="hn" >예약 다시 받기</p></button>
     	</form>
 	</div>
 	<div class="wrap">
 		<div style="position: absolute; right: 250px; bottom: 10px;">
     		<form method="post" action="/api/web/reserve/stop" >
-    			<button class="button"><p class="hn">예약 정지</p></button>
+    			<button class="button" name="stop" value="{{store_id}}"><p class="hn">예약 정지</p></button>
     		</form>
 		</div>
 	</div>
