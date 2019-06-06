@@ -1,5 +1,4 @@
 const models = require('../../../../models');
-//const app = require('../../../../app');
 
 exports.menu = (req,res) =>{
 
@@ -112,6 +111,5 @@ exports.socket =(req,res) => {
    req.app.io.to(ob.store_id).emit('menu',ob.pret02);
 
 
-    console.log(ob.pret01+'\n'+ob.pret02)
   res.json({success:true});
 }

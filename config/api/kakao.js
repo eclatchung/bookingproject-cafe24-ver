@@ -16,16 +16,9 @@ module.exports = function (status) {
 
         var PATH = null;
         (function(){
-            switch(status) {
-            case 'ready': 
-               PATH = '/v1/payment/ready'
-              break;
-            case 'approve':
-                PATH = '/v1/payment/approve'
-                break;
-            default :
-             PATH = '/v1/payment/approve'
-        }})(status)
+            if(status)
+            PATH = '/v1/payment/ready'
+        })(status)
         return {
             kpready : function(info,callback){
                 API_OPT.url = host+PATH;

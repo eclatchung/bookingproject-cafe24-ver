@@ -31,46 +31,20 @@ exports.kakaoready = (req,res)=>{
 exports.approval=(req,res)=>{
     console.log("/api/app/kakaopay/approval : ready성공!")
     
-    var respone = {};
-
-    respone.tid = req.body.tid;
-    respone.next_redirect_app_url = req.body.next_redirect_app_url;
-    respone.android_app_scheme = req.body.android_app_scheme;
-    respone.created_at = req.body.created_at;
-
-    res.json(respone);
-    console.log(response)
-    
+    res.redirect('http://booking.cafe24app.com/api/app/book/save')
+   
 
 }
 exports.cancel=(req,res)=>{
     console.log("/api/app/kakaopay/approval : ready성공!")
-    
-    var respone = {};
-
-    respone.tid = req.body.tid;
-    respone.next_redirect_app_url = req.body.next_redirect_app_url;
-    respone.android_app_scheme = req.body.android_app_scheme;
-    respone.created_at = req.body.created_at;
-
-    res.json(respone);
-    console.log(response)
-    
+ 
+    res.json({msg : "결제 취소"})
 
 }
 
 exports.fail=(req,res)=>{
     console.log("/api/app/kakaopay/approval : ready성공!")
     
-    var respone = {};
-
-    respone.tid = req.body.tid;
-    respone.next_redirect_app_url = req.body.next_redirect_app_url;
-    respone.android_app_scheme = req.body.android_app_scheme;
-    respone.created_at = req.body.created_at;
-
-    res.json(respone);
-    console.log(response)
-    
+    res.json({msg : "결제 실패"})
 
 }

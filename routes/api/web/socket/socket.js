@@ -5,7 +5,6 @@ module.exports = function(io){
         socket.emit('in',{msg : 'your in'});
         socket.on('store_id',function(data){
             socket.leave(room);
-
             room = data.store_id;
             socket.join(room);
         })

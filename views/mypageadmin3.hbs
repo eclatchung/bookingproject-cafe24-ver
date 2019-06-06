@@ -1,8 +1,9 @@
 <!doctype html>
 <html>
 <head>
+
 <meta charset="UTF-8">
-<title>ADMIN01</title>
+<title>http://www.blueb.co.kr</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js">	
 </script>
 <script src="/socket.io/socket.io.js"></script>
@@ -12,59 +13,31 @@
 	var socket;
 	var options = {'forceNew': true };
 	var localhost = 'localhost:8001/store'
-	//var url = 'http://booking.cafe24app.com:8001/'
+	//var url = 'http://booking.cafe24app.com'
 	var store_id = '{{store_id}}';
-	socket =io.connect('http://localhost:8001');
+	socket =io.connect('http://booking.cafe24app.com');
 	socket.emit('store_id',{store_id : "{{store_id}}"});
 	
 	socket.on('time',function(data){
 		var len1 = data.length;
 		for(var i = 0;i<len1;i++){
 		
-		if(data[i].log != null){
-			$("#time").append('<li>'+data[i].log+'</li>');
-			console.log('_data왔음 :'+data[i].log)}
+		if(data[i] != null){
+			$("#time").append(data[i]+'<br>');
+			console.log('_data왔음 :'+data[i])}
 			}
 	})
 	socket.on('menu',function(data){
-		$("#menu").append('<li>'+data.log+'</li>');
+		$("#menu").append(data.log+'<br>');
 			console.log('menu_data왔음 : '+ data.log)
 	})
 	
-	/*var info = {};
-	info.store_id = '{{store_id}}';
-	info.roomtime = '{{store_id}}'+'time';
-	info.roommenu = '{{store_id}}'+'menu';
-	socket = io('/store');
-	socket.emit('joinroom',info);
-		socket.on('time',function(data){
-			console.log(data);
-			$(time).append($('<li>').text(data));
-		});
-		socket.on('menu',function(data){
-			$(menu).append($('<li>').text(data));
-		});*/
-	//$(function(){
-	//	socket = io.connect(localhost,options);
-	//	socket.on('connect',function(t){
-	//		console.log('접속완료쓰')
-	//	});
-	//	socket.emmit('joinroom',info);
-	//	socket.on('time',function(data){
-	//		$(time).append($('<li>').text(data));
-	//	})
-	//	socket.on('menu',function(data){
-	//		$(menu).append($('<li>').text(data));
-	//	})
-	//	socket.on('disconnect',function(){
-//
-//		})
-//	})
 
 </script>
 <link href="http://fonts.googleapis.com/earlyaccess/hanna.css" rel="stylesheet">
 <style>
 .hn{font-family: 'Hanna', sans-serif;}
+.hnr{font-family: 'Hanna',sans-serif; font-size: medium}
 
 .main_common{
     display: inline-table;
@@ -76,6 +49,13 @@ border-radius: 10px;
 text-align: center;
 }
 p.clicked{ background:white; color:red; }
+
+.content {
+display: table-cell;
+vertical_align: middle;
+text-align: center;
+}
+
 .main{
 	width:100%;
 	height:800px;
@@ -132,13 +112,28 @@ position: relative;
 left: 70px;
 top: 400px;
 }
-.content {
-display: table-cell;
-vertical_align: middle;
-text-align: center;
+.a{
+	width:100%;
+	height:800px;
+	font-family: Fantasy;
+	font-size: 30px;}
+.a_1 {
+	position: relative;
+	top: -200px;
+	left: 0px;
+	border-style:black;
+	width: 730px;
+	height: 300px;
+
 }
-    html, body {
-  height: 100%;
+.a_2 {
+	position: relative;
+	top: -200px;
+	left: 0px;
+	border-style:black;
+	width: 730px;
+	height: 300px;
+
 }
 
 .textarea{
@@ -205,25 +200,21 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3E1D6D', end
     <div class="main_8 main_common"><p class="content">No.8</p></div>
 	<div class="main_9 main_common"><p class="content">No.9</p></div>
     <div class="main_10 main_common"><p class="content">No.10</p></div> 
-			<!-- ===============예약현황=============================
-		     =================================================== -->
-	<textarea id='time' cols='100' rows='15' class='textarea'></textarea>
-			<!-- ===============예약메뉴=============================
-		     =================================================== -->
-	<textarea id ='menu' cols='100' rows='15' class='textarea'></textarea>
 </div>
+    <div class="a">
+	<div class="a_1 main_common" ><div class="hnr" id = "time"></div></div>
+	<div class="a_2 main_common" ><div class="hnr" id ="menu"></div></div>
+	</div>
 <div class="wrap">
 	<div style="position: absolute; right: 70px; bottom: 10px;">
-		<!-- ===============예약기능=============================
-		     =================================================== -->
-    	<form method="post" action="/api/web/reserve/restart">
-    		<button class="button" name="restart" value="{{store_id}}"><p class="hn">예약 다시 받기</p></button>
+    	<form method="post">
+    		<button class="button"><p class="hn">예약 다시 받기</p></button>
     	</form>
 	</div>
 	<div class="wrap">
 		<div style="position: absolute; right: 250px; bottom: 10px;">
-    		<form method="post"action="/api/web/reserve/stop">
-    			<button class="button" name="stop" value="{{store_id}}"><p class="hn">예약 정지</p></button>
+    		<form method="post">
+    			<button class="button"><p class="hn">예약 정지</p></button>
     		</form>
 		</div>
 	</div>

@@ -1,5 +1,5 @@
 const models = require('../../../../models');
-//let exports = module.exports = {};
+
 
 exports.register = function(req,res,next){
 

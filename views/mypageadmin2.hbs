@@ -2,11 +2,41 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ADMIN01+mypage</title>
+<title>ADMIN01</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js">	
+</script>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+	var host;
+	var port;
+	var socket;
+	var options = {'forceNew': true };
+	var localhost = 'localhost:8001/store'
+	//var url = 'http://booking.cafe24app.com'
+	var store_id = '{{store_id}}';
+	socket =io.connect('http://booking.cafe24app.com');
+	socket.emit('store_id',{store_id : "{{store_id}}"});
+	
+	socket.on('time',function(data){
+		var len1 = data.length;
+		for(var i = 0;i<len1;i++){
+		
+		if(data[i] != null){
+			$("#time").append(data[i]+'<br>');
+			console.log('_data왔음 :'+data[i])}
+			}
+	})
+	socket.on('menu',function(data){
+		$("#menu").append(data.log+'<br>');
+			console.log('menu_data왔음 : '+ data.log)
+	})
+	
+
+</script>
 <link href="http://fonts.googleapis.com/earlyaccess/hanna.css" rel="stylesheet">
 <style>
 .hn{font-family: 'Hanna', sans-serif;}
-
+.hnr{font-family: 'Hanna',sans-serif; font-size: medium}
 .main_common{
     display: inline-table;
     width: 150px;
@@ -18,8 +48,10 @@ text-align: center;
 }
 p.clicked{ background:white; color:red; }
 .main{
-font-family: Fantasy;
-font-size: 30px;
+	width:100%;
+	height:800px;
+	font-family: Fantasy;
+	font-size: 30px;
 }
 .main_1 {
 position: relative;
@@ -80,6 +112,11 @@ text-align: center;
   height: 100%;
 }
 
+.textarea{
+	position: relative;
+	margin: 480px 0 0 60px;
+	border-style:hidden;
+}
 .wrap {
 height: 100%;
 display: flex;
@@ -109,20 +146,6 @@ box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
 color: #fff;
 transform: translateY(-7px);
 }
-@import url(http://fonts.googleapis.com/css?family=Open+Sans);
-.btn { display: inline-block; *display: inline; *zoom: 1; padding: 4px 10px 4px; margin-bottom: 0; font-size: 13px; line-height: 18px; color: #333333; text-align: center;text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75); vertical-align: middle; background-color: #f5f5f5; background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6); background-image: -ms-linear-gradient(top, #ffffff, #e6e6e6); background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6)); background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6); background-image: -o-linear-gradient(top, #ffffff, #e6e6e6); background-image: linear-gradient(top, #ffffff, #e6e6e6); background-repeat: repeat-x; filter: progid:dximagetransform.microsoft.gradient(startColorstr=#ffffff, endColorstr=#e6e6e6, GradientType=0); border-color: #e6e6e6 #e6e6e6 #e6e6e6; border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25); border: 1px solid #e6e6e6; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); cursor: pointer; *margin-left: .3em; }
-.btn:hover, .btn:active, .btn.active, .btn.disabled, .btn[disabled] { background-color: #e6e6e6; }
-.btn-large { padding: 9px 14px; font-size: 15px; line-height: normal; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; }
-.btn:hover { color: #333333; text-decoration: none; background-color: #e6e6e6; background-position: 0 -15px; -webkit-transition: background-position 0.1s linear; -moz-transition: background-position 0.1s linear; -ms-transition: background-position 0.1s linear; -o-transition: background-position 0.1s linear; transition: background-position 0.1s linear; }
-.btn-primary, .btn-primary:hover { text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); color: #ffffff; }
-.btn-primary.active { color: rgba(255, 255, 255, 0.75); }
-.btn-primary { background-color: #4a77d4; background-image: -moz-linear-gradient(top, #6eb6de, #4a77d4); background-image: -ms-linear-gradient(top, #6eb6de, #4a77d4); background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#6eb6de), to(#4a77d4)); background-image: -webkit-linear-gradient(top, #6eb6de, #4a77d4); background-image: -o-linear-gradient(top, #6eb6de, #4a77d4); background-image: linear-gradient(top, #6eb6de, #4a77d4); background-repeat: repeat-x; filter: progid:dximagetransform.microsoft.gradient(startColorstr=#6eb6de, endColorstr=#4a77d4, GradientType=0);  border: 1px solid #3762bc; text-shadow: 1px 1px 1px rgba(0,0,0,0.4); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.5); }
-.btn-primary:hover, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled] { filter: none; background-color: #4a77d4; }
-.btn-block { width: 100%; display:block; }
-
-* { -webkit-box-sizing:border-box; -moz-box-sizing:border-box; -ms-box-sizing:border-box; -o-box-sizing:border-box; box-sizing:border-box; }
-
-html { width: 100%; height:100%; overflow:hidden; }
 
 body { 
 width: 100%;
@@ -137,18 +160,11 @@ background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4)
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3E1D6D', endColorstr='#092756',GradientType=1 );
 }
 
-
-
 </style>
 
 </head>
 <body>
-<script>
-function tableColor() {
-docum ent.getElem entByle("secunolja").style.backgroundColor = "green"
-}
-</script>
- 
+
 <div class="main">
     <div class="main_1 main_common"><p class="content">No.1</p></div>
     <div class="main_2 main_common"><p class="content">No.2</p></div>
@@ -160,6 +176,12 @@ docum ent.getElem entByle("secunolja").style.backgroundColor = "green"
     <div class="main_8 main_common"><p class="content">No.8</p></div>
 	<div class="main_9 main_common"><p class="content">No.9</p></div>
     <div class="main_10 main_common"><p class="content">No.10</p></div> 
+			<!-- ===============예약현황=============================
+		     =================================================== -->
+	<textarea id='time' cols='100' rows='15' class='hnr'></textarea>
+			<!-- ===============예약메뉴=============================
+		     =================================================== -->
+	<textarea id ='menu' cols='100' rows='15' class='hnr'></textarea>
 </div>
 <div class="wrap">
 	<div style="position: absolute; right: 70px; bottom: 10px;">
@@ -177,6 +199,7 @@ docum ent.getElem entByle("secunolja").style.backgroundColor = "green"
 		</div>
 	</div>
 </div>
+
 <script>
 document.querySelector(".main").addEventListener("click",
   function(e){ 
